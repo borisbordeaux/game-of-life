@@ -10,6 +10,8 @@ class GameItem : public QGraphicsItem
 public:
 	GameItem(Game const& game, qreal cellSize);
 
+    void setCellSize(qreal cellSize);
+
 	QRectF boundingRect() const override;
 	void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) override;
 

@@ -35,7 +35,7 @@ void MainWindow::update()
     message += " (" + QString::number(1000000000/std::chrono::duration_cast<std::chrono::nanoseconds>(begin - m_lastTime).count()) + " fps)";
 	this->ui->statusBar->showMessage(message);
 	Renderer::render(m_scene, m_game, m_cellSize);
-    m_lastTime = std::chrono::steady_clock::now();
+    m_lastTime = begin;
 }
 
 void MainWindow::cellSizeChanged(int value)

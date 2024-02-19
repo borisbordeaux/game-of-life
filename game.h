@@ -1,24 +1,26 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include <QVector>
+#include <QImage>
 
 class Game
 {
 public:
 	Game();
-	void init(qsizetype w, qsizetype h);
+    void init(int w, int h);
 	void setRandom();
 	void update();
-	QVector<QVector<bool>> const& currentGrid() const;
+    const QImage &currentGrid() const;
 
 private:
-	int countNeighbors(qsizetype w, qsizetype h) const;
+    int countNeighbors(int w, int h) const;
 
 private:
-	QVector<QVector<bool>> m_grid1;
-	QVector<QVector<bool>> m_grid2;
+    QImage m_img1;
+    QImage m_img2;
     bool m_currentGrid1 = true;
+    QColor ALIVE = QColor(Qt::black);
+    QColor DEAD = QColor(Qt::white);
 };
 
 #endif // GAME_H
